@@ -48,6 +48,10 @@ const checkResult = () => {
       value[winPtrn[1]] === value[winPtrn[2]]
     ) {
       showWinner.innerHTML = value[winPtrn[0]] + " wins!";
+      showWinner.style.color = "green";
+      winPtrn.forEach((index) => {
+        arrCells[index].style.color = "green";
+      });
       disableCell();
       winnerFound = true;
       winnerMusic();
@@ -85,6 +89,7 @@ let resetBtn = document.getElementById("reset");
 resetBtn.addEventListener("click", () => {
   arrCells.forEach((cell) => {
     cell.innerHTML = "";
+    cell.style.color = "";
   });
   xTurn = true;
   enableCell();
